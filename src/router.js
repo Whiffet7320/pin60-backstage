@@ -39,6 +39,11 @@ const routes = [{
                 name: 'Guanggaoliebiao',
                 component: () => import('./components/Home/Guanggaoliebiao.vue')
             },
+            {
+                path: 'Wodetuandui',
+                name: 'Wodetuandui',
+                component: () => import('./components/Home/Wodetuandui.vue')
+            },
         ]
     },
     {
@@ -59,6 +64,11 @@ const routes = [{
                 path: 'Miandankaiguan',
                 name: 'Miandankaiguan',
                 component: () => import('./components/Miandan/Miandankaiguan.vue')
+            },
+            {
+                path: 'Miandanshibailiebiao',
+                name: 'Miandanshibailiebiao',
+                component: () => import('./components/Miandan/Miandanshibailiebiao.vue')
             },
         ]
     },

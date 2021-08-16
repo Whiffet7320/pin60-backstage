@@ -6,17 +6,17 @@ const vue = new Vue()
 let myPost = axios.create({
     baseURL: urls.baseUrl,
     method: 'post',
-    timeout: 1000,
+    timeout: 2000,
 })
 let myGet = axios.create({
     baseURL: urls.baseUrl,
     method: 'get',
-    timeout: 1000,
+    timeout: 2000,
 })
 let myDelete = axios.create({
     baseURL: urls.baseUrl,
     method: 'delete',
-    timeout: 1000,
+    timeout: 2000,
 })
 
 myDelete.interceptors.request.use(config => {
@@ -370,14 +370,16 @@ export default {
             }
         })
     },
-    user_order(page, pagesize, keyword, status) {
+    user_order(page, pagesize, keyword, status, start_date, end_date) {
         return myPost({
             url: urls.user_order,
             data: {
                 page,
                 pagesize,
                 keyword,
-                status
+                status,
+                start_date,
+                end_date
             }
         })
     },
@@ -485,4 +487,74 @@ export default {
             }
         })
     },
+    order_setorderstatus(username, userpass, order_id, order_status) {
+        return myPost({
+            url: urls.order_setorderstatus,
+            data: {
+                username,
+                userpass,
+                order_id,
+                order_status
+            }
+        })
+    },
+    freeorder_refundlist(username, userpass, page, pagesize) {
+        return myPost({
+            url: urls.freeorder_refundlist,
+            data: {
+                username,
+                userpass,
+                page,
+                pagesize
+            }
+        })
+    },
+    order_export(username, userpass, start_date, end_date, order_status) {
+        return myPost({
+            url: urls.order_export,
+            data: {
+                username,
+                userpass,
+                start_date,
+                end_date,
+                order_status
+            }
+        })
+    },
+    freeorder_refundsubmit(username, userpass, refund_id) {
+        return myPost({
+            url: urls.freeorder_refundsubmit,
+            data: {
+                username,
+                userpass,
+                refund_id
+            }
+        })
+    },
+    goods_view(username,userpass,id){
+        return myPost({
+            url: urls.goods_view,
+            data: {
+                username,
+                userpass,
+                id
+            }
+        })
+    },
+    references_list(obj){
+        return myPost({
+            url: urls.references_list,
+            data: {
+                ...obj
+            }
+        })
+    },
+    referencespush_list(obj){
+        return myPost({
+            url: urls.referencespush_list,
+            data: {
+                ...obj
+            }
+        })
+    }
 }

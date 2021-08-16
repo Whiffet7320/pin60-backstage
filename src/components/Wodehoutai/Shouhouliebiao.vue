@@ -66,18 +66,6 @@
           label="客户名称"
         >
         </el-table-column>
-        <!-- <el-table-column
-          :show-overflow-tooltip="true"
-          prop="realname"
-          label="商品名称"
-        >
-        </el-table-column> -->
-        <!-- <el-table-column
-          :show-overflow-tooltip="true"
-          prop="orders_status"
-          label="货物状态"
-        >
-        </el-table-column> -->
         <el-table-column
           :show-overflow-tooltip="true"
           prop="orders_money"
@@ -96,22 +84,6 @@
           label="退款金额"
         >
         </el-table-column>
-        <!-- <el-table-column
-          :show-overflow-tooltip="true"
-          prop="title"
-          label="商品主图"
-        >
-          <template slot-scope="scope">
-            <template v-for="(item, i) in scope.row.pic">
-              <img
-                v-if="item.name != ''"
-                :key="i"
-                style="width: 40px; height: 40px; cursor: pointer"
-                :src="item.name"
-              />
-            </template>
-          </template>
-        </el-table-column> -->
         <el-table-column
           :show-overflow-tooltip="true"
           prop="types"
@@ -247,6 +219,7 @@ export default {
           message: res.msg,
           type: 'success'
         });
+        this.getData()
       }else{
         this.$message.error(res.msg);
       }

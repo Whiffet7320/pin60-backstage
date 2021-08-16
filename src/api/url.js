@@ -1,5 +1,5 @@
 export default {
-    baseUrl: '/api',
+    baseUrl: 'https://fzshop.5laoye.com/api',
     login: '/login', //登录
     logincheck: '/logincheck', //后台登录状态检测
     addclassify: '/addclassify', //后台添加分类
@@ -36,4 +36,11 @@ export default {
     order_postsaleset:'/order_postsaleset',//后台售后申请处理
     withdrawal_list:'/withdrawal_list',//后台申请的提现列表
     withdrawal:'/withdrawal',//后台申请的提现审核
+    order_setorderstatus:'/order_setorderstatus',//后台订单状态设置
+    freeorder_refundlist:'/freeorder_refundlist',//后台免单失败列表
+    freeorder_refundsubmit:'/freeorder_refundsubmit',//后台免单失败提交处理
+    order_export:"/order_export",//后台订单导出
+    goods_view:'/goods_view',//后台商品详情
+    references_list:'/references_list',//后台直推本身级别列表
+    referencespush_list:'/referencespush_list',//后台直推一级列表
 }

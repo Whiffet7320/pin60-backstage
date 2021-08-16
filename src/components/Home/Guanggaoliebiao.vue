@@ -17,12 +17,12 @@
             <!-- </div> -->
           </template>
         </el-table-column>
-        <el-table-column
+        <!-- <el-table-column
           :show-overflow-tooltip="true"
           prop="url"
           label="跳转链接"
         >
-        </el-table-column>
+        </el-table-column> -->
         <el-table-column
           :show-overflow-tooltip="true"
           prop="title"
@@ -82,9 +82,9 @@
         <el-form-item label="副标题">
           <el-input v-model="editform.sub_title"></el-input>
         </el-form-item>
-        <el-form-item label="跳转链接">
+        <!-- <el-form-item label="跳转链接">
           <el-input v-model="editform.urlLink"></el-input>
-        </el-form-item>
+        </el-form-item> -->
         <el-form-item>
           <el-button type="primary" @click="editOnSubmit">保存</el-button>
         </el-form-item>

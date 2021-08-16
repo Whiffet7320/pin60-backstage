@@ -1,5 +1,7 @@
 <template>
   <div class="Wodehoutai">
-    <RouterView />
+    <transition name="breadcrumb">
+      <RouterView />
+    </transition>
   </div>
 </template>

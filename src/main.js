@@ -7,19 +7,40 @@ import api from './api/index';
 import store from './store';
 import Viewer from 'v-viewer'
 import 'viewerjs/dist/viewer.css'
+import 'xe-utils'
+import VXETable from 'vxe-table'
+import 'vxe-table/lib/style.css'
+import './assets/trantion.css'
+
+Vue.use(VXETable)
 
 Vue.prototype.$api = api
 
 Vue.use(ElementUI);
 Vue.use(Viewer)
 Viewer.setDefaults({
-  Options: { 'inline': true, 'button': true, 'navbar': true, 'title': true, 'toolbar': true, 'tooltip': true, 'movable': true, 'zoomable': true, 'rotatable': true, 'scalable': true, 'transition': true, 'fullscreen': true, 'keyboard': true, 'url': 'data-source' }
+  Options: {
+    'inline': true,
+    'button': true,
+    'navbar': true,
+    'title': true,
+    'toolbar': true,
+    'tooltip': true,
+    'movable': true,
+    'zoomable': true,
+    'rotatable': true,
+    'scalable': true,
+    'transition': true,
+    'fullscreen': true,
+    'keyboard': true,
+    'url': 'data-source'
+  }
 })
 
 router.beforeEach((to, from, next) => {
   console.log(to)
   // 如果有token 说明该用户已登陆
-  if (sessionStorage.getItem("isLogin")=='true') {
+  if (sessionStorage.getItem("isLogin") == 'true') {
     // 在已登陆的情况下访问登陆页会重定向到首页
     next()
   } else {

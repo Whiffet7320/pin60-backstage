@@ -13,6 +13,20 @@
       >
         <el-row>
           <el-col :span="12">
+            <el-form-item label="app端微信appid" prop="name">
+              <el-input v-model="ruleForm.app_appid"></el-input>
+            </el-form-item>
+          </el-col>
+        </el-row>
+        <el-row>
+          <el-col :span="12">
+            <el-form-item label="app端微信appsecret" prop="name">
+              <el-input v-model="ruleForm.app_appsecret"></el-input>
+            </el-form-item>
+          </el-col>
+        </el-row>
+        <el-row>
+          <el-col :span="12">
             <el-form-item label="微信小程序appid" prop="name">
               <el-input v-model="ruleForm.appid"></el-input>
             </el-form-item>
@@ -63,9 +77,7 @@
         <el-row>
           <el-col :span="24">
             <el-form-item>
-              <el-button @click="submitForm('ruleForm')"
-                >保存</el-button
-              >
+              <el-button @click="submitForm('ruleForm')">保存</el-button>
             </el-form-item>
           </el-col>
         </el-row>
@@ -90,6 +102,8 @@ export default {
       file: null,
       fileIndex: null,
       ruleForm: {
+        app_appid:'',
+        app_appsecret:'',
         appid: "",
         appsecret: "",
         merchant_no: "",
@@ -107,16 +121,16 @@ export default {
       },
     };
   },
-  created(){
-    this.getData()
+  created() {
+    this.getData();
   },
   methods: {
-    async getData(){
-      const res = await this.$api.payment_view()
-      console.log(res)
-      this.ruleForm = {...res}
+    async getData() {
+      const res = await this.$api.payment_view();
+      console.log(res);
+      this.ruleForm = { ...res };
       this.pay_certName = res.pay_cert;
-      this.pay_keyName = res.pay_key
+      this.pay_keyName = res.pay_key;
     },
     // 上传
     companyList(i) {
@@ -145,6 +159,7 @@ export default {
         if (valid) {
           console.log(this.ruleForm);
           this.$api.payment_set({ ...this.ruleForm }).then((res) => {
+            console.log(res)
             if (res.result == 1) {
               this.$message({
                 message: res.msg,

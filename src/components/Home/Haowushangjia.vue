@@ -205,7 +205,7 @@ export default {
     return {
       colordialogVisible: false,
       optionsVal: null,
-      imgList: ["", "", "", "", ""],
+      imgList: ["", "", "", "", "","", "", "", "", "","", ""],
       imgIndex: null,
       options: [], //分类列表
       colorForm: {
@@ -249,13 +249,16 @@ export default {
   methods: {
     async getData() {
       if (this.shangpinEditform) {
+        const resp = await this.$api.goods_view(sessionStorage.getItem("user_name"),
+        sessionStorage.getItem("user_pass"),this.shangpinEditform.id)
+        console.log(resp)
         console.log(this.shangpinEditform);
         this.ruleForm = this.shangpinEditform;
         // this.imgList = this.shangpinEditform
         this.shangpinEditform.pic.forEach((ele, i) => {
           this.imgList[i] = ele.name;
         });
-        this.editor.txt.html(this.shangpinEditform.content);
+        this.editor.txt.html(resp.content);
       }
       this.ruleForm.overbooking = this.ruleForm.overbooking == 1 ? true : false;
       this.ruleForm.link_status = this.ruleForm.link_status == 1 ? true : false;
@@ -305,7 +308,9 @@ export default {
           type: "success",
         });
         this.$set(this.imgList, i, "");
-      }
+      }else{
+          this.$message.error(res.msg);
+        }
     },
     companyLogo(event) {
       // console.log(this.myImgList.length);
@@ -390,6 +395,8 @@ export default {
           setTimeout(() => {
             this.$router.push({ name: "Shangpinliebiao" });
           }, 500);
+        }else{
+          this.$message.error(res.msg);
         }
       } else {
         // 新增
@@ -406,6 +413,8 @@ export default {
           setTimeout(() => {
             this.$router.push({ name: "Shangpinliebiao" });
           }, 500);
+        }else{
+          this.$message.error(res.msg);
         }
       }
     },
@@ -525,8 +534,10 @@ export default {
 }
 .items {
   display: flex;
+  flex-wrap: wrap;
   .item {
     margin-right: 10px;
+    margin-bottom: 10px;
     .myImg {
       width: 120px;
       height: 120px;

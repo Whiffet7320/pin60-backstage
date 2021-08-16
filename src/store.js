@@ -18,6 +18,12 @@ export default new Vuex.Store({
     huowuzhuangtaiPageSize: 10,
     shouhouliebiaoPage: 1, //售后列表
     shouhouliebiaoPageSize: 10,
+    miandanshibaiPage: 1, //免单失败列表
+    miandanshibaiPageSize: 10,
+    wodetuanduiPage: 1, //我的团队列表
+    wodetuanduiPageSize: 10,
+    xiajiPage: 1, //下级列表
+    xiajiPageSize: 10,
   },
   mutations: {
     fileList(state, str) {
@@ -58,6 +64,24 @@ export default new Vuex.Store({
     },
     shouhouliebiaoPageSize(state, str) {
       state.shouhouliebiaoPageSize = str;
+    },
+    miandanshibaiPage(state, str) {
+      state.miandanshibaiPage = str;
+    },
+    miandanshibaiPageSize(state, str) {
+      state.miandanshibaiPageSize = str;
+    },
+    wodetuanduiPage(state, str) {
+      state.wodetuanduiPage = str;
+    },
+    wodetuanduiPageSize(state, str) {
+      state.wodetuanduiPageSize = str;
+    },
+    xiajiPage(state, str) {
+      state.xiajiPage = str;
+    },
+    xiajiPageSize(state, str) {
+      state.xiajiPageSize = str;
     },
   },
   actions: {

@@ -49,6 +49,9 @@
           <el-menu-item index="1-3" :route="{ name: 'Yaoqinhaoyou' }"
             >邀请好友/佣金</el-menu-item
           >
+          <el-menu-item index="1-7" :route="{ name: 'Wodetuandui' }"
+            >我的团队</el-menu-item
+          >
         </el-submenu>
         <el-submenu index="2">
           <template slot="title">
@@ -72,6 +75,9 @@
           </template>
           <el-menu-item index="2-1" :route="{ name: 'Quanptmiandanjilu' }"
             >全平台免单记录</el-menu-item
+          >
+          <el-menu-item index="2-4" :route="{ name: 'Miandanshibailiebiao' }"
+            >免单失败列表</el-menu-item
           >
           <el-menu-item index="2-2" :route="{ name: 'Miandangouwu' }"
             >免单购物协议</el-menu-item
@@ -141,12 +147,16 @@ export default {
         this.menuActiveIndex = "1-5";
       } else if (to.path == "/Shangpinliebiao") {
         this.menuActiveIndex = "1-6";
+      } else if (to.path == "/Wodetuandui") {
+        this.menuActiveIndex = "1-7";
       } else if (to.path == "/Miandan/Guanggaoliebiao") {
         this.menuActiveIndex = "2-1";
       } else if (to.path == "/Miandan/Miandangouwu") {
         this.menuActiveIndex = "2-2";
       } else if (to.path == "/Miandan/Miandankaiguan") {
         this.menuActiveIndex = "2-3";
+      } else if (to.path == "/Miandan/Miandanshibailiebiao") {
+        this.menuActiveIndex = "2-4";
       } else if (to.path == "/Wodehoutai/Edu") {
         this.menuActiveIndex = "3-1";
       } else if (to.path == "/Wodehoutai/Huowuzhuangtai") {
@@ -193,7 +203,7 @@ export default {
 
 <style lang="scss" scoped>
 .aside {
-  overflow-x: hidden;
+  // overflow-x: hidden;
   .nav1 {
     width: 284px;
     height: 81px;
